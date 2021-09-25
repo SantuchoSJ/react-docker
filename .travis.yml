@@ -1,0 +1,10 @@
+sudo: required
+language: generic
+services:
+  - docker
+
+before_install:
+  - docker build -t react_docker -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true react_docker npm run test -- --coverage
