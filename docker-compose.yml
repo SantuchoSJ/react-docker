@@ -1,21 +1,8 @@
 version: "3"
 services:
-  local:
+  client:
     build:
       context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - ./src:/client/src
-      - ./public:/client/public
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
-    image: dockereact_client
-  tests:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - ./src:/client/src
-      - ./public:/client/public
-    image: dockereact_tests
-    command: ["npm", "test"]
+      - "80:80"
